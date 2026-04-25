@@ -10,7 +10,7 @@
     {{- $h = int (replaceRE `^.*?height="(\d+)".*$` "$1" $tag) -}}
   {{- end -}}
   {{- if and (gt $w 0) (gt $h $w) -}}
-    {{- $wrapped := printf `<span class="post-image post-image--portrait d-inline-flex">%s</span>` $tag -}}
+    {{- $wrapped := printf `<span class="post-image post-image--portrait">%s</span>` $tag -}}
     {{- $content = replace $content $tag $wrapped -}}
   {{- end -}}
 {{- end -}}
