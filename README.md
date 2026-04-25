@@ -32,7 +32,6 @@ Mobile hamburger menu comes from Jonathan Suh here: https://github.com/jonsuh/ha
 * Shows your most recent last.fm play (via my API)
 * Shows your 'Currently Reading' micro.blog book
 * Replies and Conversations
-* Old-school marquee banner
 plus loads more in a stacked config.json!
 
 ## Customising
@@ -51,9 +50,6 @@ You can request an API key from me if you want to use this integration. Drop the
 
 #### Post Content
 You can toggle on/off the ability to show Categories on your posts, Categories in your sidebar, the amount of time it'll take to read your posts, Archive years in your sidebar, truncation of posts in your main feed. All of these are again options in your settings.
-
-#### Marquee
-We've got an old-school marquee here! You can drop a bit of something in `marqueeContent` in your settings - HTML is supported - and toggle on the marquee. 
 
 #### Advanced Editing
 

@@ -124,17 +124,6 @@
       "label": "Truncate Posts Character Limit",
       "type": "integer",
       "placeholder": 250
-    },
-    {
-      "field": "params.enableMarquee",
-      "label": "Enable Marquee Content",
-      "type": "boolean"
-    },
-    {
-      "field": "params.marqueeContent",
-      "label": "Marquee Content (HTML allowed)",
-      "type": "text",
-      "placeholder": ""
     }
   ]
 }

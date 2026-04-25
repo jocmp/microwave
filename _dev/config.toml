@@ -1,0 +1,33 @@
+baseURL = "http://localhost:1313/"
+ignoreFiles = ["\\.tmp\\.[0-9]+\\."]
+languageCode = "en-us"
+title = "jocmp"
+theme = "microwave"
+
+[author]
+  username = "jocmp"
+  name = "jocmp"
+  avatar = "https://micro.blog/jocmp/avatar.jpg"
+
+[params]
+  tagline = "Tagline goes here"
+  metaDescription = "Local dev site for the microwave theme"
+  showTagline = true
+  github_username = "jocmp"
+  blueskyUsername = "jocmp.com"
+  mastodonLink = "https://mastodon.social/@_jocmp"
+
+[[menu.main]]
+  name = "About"
+  pageRef = "/about"
+  weight = 10
+
+[[menu.main]]
+  name = "Posts"
+  pageRef = "/post"
+  weight = 20
+
+[[menu.main]]
+  name = "Categories"
+  pageRef = "/categories"
+  weight = 30

@@ -3,7 +3,7 @@
       <input type="text" class="form-control" name="q" id="{{ .ID }}_input_search" placeholder="Search..."
           onchange="submitSearch('{{ .ID }}', this.value.toLowerCase());" aria-label="search" aria-describedby="button-addon2">
       <div class="input-group-append">
-          <button class="btn btn-primary" type="button" id="button-addon2" onclick="submitSearch('{{ .ID }}', this.value.toLowerCase());">
+          <button class="btn btn-primary" type="button" id="button-addon2" aria-label="Search" onclick="submitSearch('{{ .ID }}', this.value.toLowerCase());">
               <i class="bi bi-search"></i>
           </button>
       </div>

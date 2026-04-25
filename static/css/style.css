@@ -1,6 +1,21 @@
 /* Homepage */
+.social-icons .icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .social-icons .icon-link:not(:last-child) {
   margin-right: 0.5rem;
+}
+
+.social-icons .icon-link i {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  line-height: 1;
 }
 
 .home-active {
@@ -13,14 +28,11 @@
   z-index: 1000;
 }
 
-.bg-marquee {
-  background-color: white;
-}
-
-@media (prefers-color-scheme: dark) {
-  .bg-marquee {
-    background-color: rgb(50, 53, 66);
-  }
+.avatar {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
 .post-content img {
@@ -99,14 +111,19 @@ video {
 /* search */
 .search-result:hover {
   text-decoration-line: underline;
-  text-decoration-style: wavy;
-  text-underline-offset: 0.3rem;
+  text-decoration-style: solid;
+  text-underline-offset: 0.2rem;
 }
 
 a {
-  text-decoration-line: underline ;
-  text-decoration-style: wavy !important;
-  text-underline-offset: 0.3rem !important; 
+  text-decoration-line: underline;
+  text-decoration-style: solid !important;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2rem !important;
+}
+
+a:hover {
+  filter: brightness(0.75);
 }
 
 
@@ -468,4 +485,157 @@ ul.bookshelf.bookshelf--variant-grid > li {
 
 .bookshelf--variant-list .bookshelf__meta {
   margin-left: 0.5rem;
+}
+
+.card {
+  container-type: inline-size;
+}
+
+.post-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 66.67cqw;
+}
+
+.post-image > img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.post-image--portrait {
+  aspect-ratio: 3 / 2;
+  max-height: none;
+  background-color: var(--ef-bg-elev);
+}
+
+/* ---- Everforest theme ---- */
+:root { color-scheme: light dark; }
+
+body, h1, h2, h3, h4, h5, h6, p, li, a, blockquote, .card, .card-title, .card-body {
+  font-family: "Vollkorn", Georgia, "Times New Roman", serif !important;
+}
+
+code, pre, kbd, samp {
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace !important;
+}
+
+:root {
+  --ef-bg: #FDF6E3;
+  --ef-bg-card: #FFFBEF;
+  --ef-bg-elev: #F4F0D9;
+  --ef-fg: #1B2418;
+  --ef-fg-dim: #5C6A50;
+  --ef-border: #BDC3AF;
+  --ef-link: #586800;
+  --ef-aqua: #35A77C;
+  --ef-red: #F85552;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ef-bg: #2D353B;
+    --ef-bg-card: #343F44;
+    --ef-bg-elev: #3D484D;
+    --ef-fg: #F8F2DF;
+    --ef-fg-dim: #CDC2A8;
+    --ef-border: #475258;
+    --ef-link: #A7C080;
+    --ef-aqua: #83C092;
+    --ef-red: #E67E80;
+  }
+}
+
+body {
+  background-color: var(--ef-bg) !important;
+  color: var(--ef-fg) !important;
+}
+
+a {
+  color: var(--ef-link) !important;
+}
+
+nav a,
+.card-title a {
+  color: var(--ef-fg) !important;
+}
+
+.card {
+  background-color: var(--ef-bg-card) !important;
+  border-color: var(--ef-border) !important;
+  color: var(--ef-fg) !important;
+}
+
+.text-muted {
+  color: var(--ef-fg-dim) !important;
+}
+
+.microblog_conversation {
+  background-color: var(--ef-bg-card) !important;
+  border-color: var(--ef-border) !important;
+  color: var(--ef-fg) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .microblog_conversation {
+    background-color: var(--ef-bg-card) !important;
+  }
+}
+
+code, pre, kbd, samp {
+  background-color: var(--ef-bg-elev) !important;
+  color: var(--ef-fg) !important;
+  border-radius: 3px;
+  padding: 0.05em 0.3em;
+}
+
+pre {
+  padding: 0.75rem 1rem;
+}
+
+pre code {
+  padding: 0;
+  background: transparent !important;
+}
+
+blockquote {
+  border-left: 3px solid var(--ef-aqua);
+  padding-left: 1rem;
+  color: var(--ef-fg-dim);
+}
+
+hr {
+  border-top: 1px solid var(--ef-border);
+}
+
+.btn-primary,
+.btn-primary:focus {
+  color: var(--ef-bg-card) !important;
+  background-color: var(--ef-link) !important;
+  border-color: var(--ef-link) !important;
+}
+
+.btn-primary:hover {
+  color: var(--ef-bg-card) !important;
+  background-color: #3F4A00 !important;
+  border-color: #3F4A00 !important;
+  filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-primary,
+  .btn-primary:focus {
+    color: var(--ef-bg) !important;
+    background-color: var(--ef-link) !important;
+    border-color: var(--ef-link) !important;
+  }
+  .btn-primary:hover {
+    color: var(--ef-bg) !important;
+    background-color: #B5CD96 !important;
+    border-color: #B5CD96 !important;
+  }
 }

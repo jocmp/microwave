@@ -61,10 +61,27 @@
         {{ $fullimg = true }}
     {{ end }}
   {{ end }}
-  <div class="card {{ range .Params.categories }}{{ . }}{{ end }} mb-5">
+  <div class="card {{ range .Params.categories }}{{ . }}{{ end }} mb-3">
     {{ if .Params.images }}
-    <div class="post-image" {{ if not $fullimg }} style="max-height: 250px; overflow: hidden;" {{ end }}>
-      <img src="{{ index .Params.images 0 }}" class="card-img-top w-100" alt="...">
+    {{ $imgURL := index .Params.images 0 }}
+    {{ $w := 0 }}
+    {{ $h := 0 }}
+    {{ if or (hasPrefix $imgURL "http://") (hasPrefix $imgURL "https://") }}
+      {{ with resources.GetRemote $imgURL }}
+        {{ if not .Err }}
+          {{ $w = .Width }}
+          {{ $h = .Height }}
+        {{ end }}
+      {{ end }}
+    {{ else }}
+      {{ with imageConfig (printf "static%s" $imgURL) }}
+        {{ $w = .Width }}
+        {{ $h = .Height }}
+      {{ end }}
+    {{ end }}
+    {{ $portrait := and (gt $w 0) (gt $h 0) (gt $h $w) }}
+    <div class="post-image{{ if $portrait }} post-image--portrait{{ end }}">
+      <img src="{{ $imgURL }}"{{ if and (gt $w 0) (gt $h 0) }} width="{{ $w }}" height="{{ $h }}"{{ end }} class="card-img-top w-100" alt="" loading="lazy">
     </div>
     {{ end }}
     <div class="card-body">
@@ -73,14 +90,14 @@
         {{ if ne (len .Params.categories) 0 }}
         <div class="mb-2 d-flex flex-wrap">
           {{ range .Params.categories }}
-          <h4><span class="badge badge-primary">{{ . }}</span></h4>
-          {{ end }}   
+          <h4><a class="no-under" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}/"><span class="badge badge-primary">{{ . }}</span></a></h4>
+          {{ end }}
         </div>
         {{ end }}
       {{ end }}
       {{ end }}
       {{ if .Title }}
-      <h1 class="card-title">{{ .Title }}</h1>
+      <h1 class="card-title"><a class="no-under" href="{{ .Permalink }}">{{ .Title }}</a></h1>
       {{ end }}
       <div class="post-content">
         {{- if .Site.Params.truncatePostsOnIndex -}}

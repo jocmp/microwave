@@ -1,5 +1,5 @@
 <div class="d-flex p-2">
-    <img src="{{ .Site.Author.avatar }}" alt="{{ .Site.Author.name }}" width="128" height="128" class="rounded-circle">
+    <img src="{{ .Site.Author.avatar }}" alt="{{ .Site.Author.name }}" width="128" height="128" class="rounded-circle avatar">
 </div>
 
 <div class="d-flex p-2">
@@ -18,19 +18,21 @@
     {{ partial "social-icons.html" . }}
 </div>
 
-<div class="pt-2">
-    {{ $url := .RelPermalink }}<!-- we will need this to determine if links are active -->
-    <li class="px-2 mb-3 list-unstyled">
-        <a class="{{ if .IsHome }}home-active{{ end }}" href="/">Home</a>
-    </li>
-    {{ range .Site.Menus.main }}
-    <li class="px-2 mb-3 list-unstyled">
-        {{ if .Page.Params.redirect }}
-        <a class="{{ if eq .URL $url }}home-active{{ end }}" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
-        {{ else }}
-        <a class="{{ if eq .URL $url }}home-active{{ end }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+<nav class="pt-2">
+    {{ $url := .RelPermalink }}
+    <ul class="list-unstyled mb-0">
+        <li class="px-2 mb-3">
+            <a class="{{ if .IsHome }}home-active{{ end }}" href="/">Home</a>
+        </li>
+        {{ range .Site.Menus.main }}
+        <li class="px-2 mb-3">
+            {{ if .Page.Params.redirect }}
+            <a class="{{ if eq .URL $url }}home-active{{ end }}" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
+            {{ else }}
+            <a class="{{ if eq .URL $url }}home-active{{ end }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+            {{ end }}
+        </li>
         {{ end }}
-    </li>
-    {{ end }}
-</div>
+    </ul>
+</nav>
     
