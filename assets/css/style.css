@@ -246,6 +246,20 @@ blockquote p {
   cursor: pointer;
 }
 
+#prev-btn,
+#next-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+#prev-btn .bi,
+#next-btn .bi {
+  display: block;
+  line-height: 1;
+}
+
 .grid-item {
   width: 48%;
   margin-bottom: 10px;
