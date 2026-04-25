@@ -564,6 +564,18 @@ nav a,
   color: var(--ef-fg) !important;
 }
 
+.card.perma {
+  margin-bottom: 4rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  img.light-bg {
+    background-color: #FDF6E3;
+    padding: 0.5rem;
+    border-radius: 4px;
+  }
+}
+
 .card {
   background-color: var(--ef-bg-card) !important;
   border-color: var(--ef-border) !important;
