@@ -529,7 +529,8 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, blockquote, .card, .card-title, .card-bo
   font-family: "Vollkorn", Georgia, "Times New Roman", serif !important;
 }
 
-main h2, main h3, main h4, main h5, main h6 {
+.single-post-content h2, .single-post-content h3, .single-post-content h4, .single-post-content h5, .single-post-content h6,
+.post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
   margin-top: 2em;
 }
 
