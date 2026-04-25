@@ -31,3 +31,8 @@ theme = "microwave"
   name = "Categories"
   pageRef = "/categories"
   weight = 30
+
+[[menu.main]]
+  name = "GitHub"
+  url = "https://github.com/jocmp"
+  weight = 40

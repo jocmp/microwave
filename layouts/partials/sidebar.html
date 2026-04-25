@@ -25,12 +25,11 @@
             <a class="{{ if .IsHome }}home-active{{ end }}" href="/">Home</a>
         </li>
         {{ range .Site.Menus.main }}
+        {{ $href := string (.URL | relLangURL) }}
+        {{ if .Page }}{{ if .Page.Params.redirect }}{{ $href = string .Page.Params.redirect }}{{ end }}{{ end }}
+        {{ $external := or (hasPrefix $href "http://") (hasPrefix $href "https://") }}
         <li class="px-2 mb-3">
-            {{ if .Page.Params.redirect }}
-            <a class="{{ if eq .URL $url }}home-active{{ end }}" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
-            {{ else }}
-            <a class="{{ if eq .URL $url }}home-active{{ end }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
-            {{ end }}
+            <a class="{{ if eq .URL $url }}home-active{{ end }}" href="{{ $href | safeURL }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}{{ if $external }} <i class="bi bi-box-arrow-up-right ml-1" aria-label="external link"></i>{{ end }}</a>
         </li>
         {{ end }}
     </ul>

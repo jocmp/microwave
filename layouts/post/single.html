@@ -21,17 +21,18 @@
         {{ end }}
       </p>
       {{ end }}
+      {{ with .Params.categories }}
       <div class="d-flex align-items-center single-categories mb-2">
         <div class="mr-2">
           <i class="bi bi-tags"></i>
         </div>
-        {{ $baseURL := .Site.BaseURL }}
         <div class="d-flex flex-wrap">
-          {{ range .Params.Categories }}
-            <a class="btn btn-primary btn-sm btn-xs no-under" href="{{ $baseURL }}/categories/{{ . | urlize }}" role="button">{{ . }}</a>
+          {{ range . }}
+            <a class="btn btn-primary btn-sm btn-xs no-under" href="{{ printf "/categories/%s/" (. | urlize) | relURL }}" role="button">{{ . }}</a>
           {{ end }}
         </div>
       </div>
+      {{ end }}
       {{ if .Site.Params.showCrossPostsPermalink }}
       {{ if or .Params.bluesky .Params.mastodon .Params.pixelfed .Params.threads .Params.tumblr }}
       <div class="d-flex align-items-center single-categories mb-2">

@@ -56,13 +56,12 @@
   <link rel="subscribe" href="https://micro.blog/users/follow" />
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-  {{ $cb := now.Unix }}
-  <link id="light" rel="stylesheet" href="{{ "css/bootstrap-light.css" | relURL }}?v={{ $cb }}" media="(prefers-color-scheme: light)">
-  <link id="dark" rel="stylesheet" href="{{ "css/bootstrap-dark.css" | relURL }}?v={{ $cb }}" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}?v={{ $cb }}">
-  <link rel="stylesheet" href="{{ "css/hamburgers.css" | relURL }}?v={{ $cb }}">
-  <link rel="stylesheet" href="{{ "css/loader.css" | relURL }}?v={{ $cb }}">
-  <link rel="stylesheet" href="{{ "css/photoswipe.css" | relURL }}?v={{ $cb }}">
+  {{ with resources.Get "css/bootstrap-light.css" | fingerprint }}<link id="light" rel="stylesheet" href="{{ .RelPermalink }}" media="(prefers-color-scheme: light)">{{ end }}
+  {{ with resources.Get "css/bootstrap-dark.css" | fingerprint }}<link id="dark" rel="stylesheet" href="{{ .RelPermalink }}" media="(prefers-color-scheme: dark)">{{ end }}
+  {{ with resources.Get "css/style.css" | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
+  {{ with resources.Get "css/hamburgers.css" | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
+  {{ with resources.Get "css/loader.css" | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
+  {{ with resources.Get "css/photoswipe.css" | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}">{{ end }}
   
   {{ range .Site.Params.plugins_css }}
     <link rel="stylesheet" href="{{ . }}" />
