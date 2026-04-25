@@ -50,8 +50,8 @@ video {
 }
 
 .single-post-content img {
-  width: 100% !important;
-  height: 100% !important;
+  max-width: 100%;
+  height: auto;
 }
 
 .mb-2.d-flex.flex-wrap>h4:not(:last-child) {
