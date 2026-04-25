@@ -1,0 +1,29 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $title := .Get "title" -}}
+{{- $caption := .Get "caption" -}}
+{{- $class := .Get "class" -}}
+{{- $w := 0 -}}
+{{- $h := 0 -}}
+{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+  {{- with resources.GetRemote $src -}}
+    {{- $w = .Width -}}
+    {{- $h = .Height -}}
+  {{- end -}}
+{{- else -}}
+  {{- with imageConfig (printf "static%s" $src) -}}
+    {{- $w = .Width -}}
+    {{- $h = .Height -}}
+  {{- end -}}
+{{- end -}}
+{{- $portrait := and (gt $w 0) (gt $h 0) (gt $h $w) -}}
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+  {{- if $portrait -}}
+  <div class="post-image post-image--portrait">
+    <img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ if and (gt $w 0) (gt $h 0) }} width="{{ $w }}" height="{{ $h }}"{{ end }} loading="lazy">
+  </div>
+  {{- else -}}
+  <img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ if and (gt $w 0) (gt $h 0) }} width="{{ $w }}" height="{{ $h }}"{{ end }} loading="lazy">
+  {{- end -}}
+  {{- with $caption -}}<figcaption>{{ . | safeHTML }}</figcaption>{{- end -}}
+</figure>
