@@ -511,6 +511,15 @@ ul.bookshelf.bookshelf--variant-grid > li {
   aspect-ratio: 3 / 2;
   max-height: none;
   background-color: var(--ef-bg-elev);
+  vertical-align: middle;
+}
+
+p > span.post-image--portrait:only-child {
+  display: flex;
+}
+
+p:has(> span.post-image--portrait:only-child) {
+  margin: 0;
 }
 
 /* ---- Everforest theme ---- */
