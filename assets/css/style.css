@@ -529,6 +529,10 @@ body, h1, h2, h3, h4, h5, h6, p, li, a, blockquote, .card, .card-title, .card-bo
   font-family: "Vollkorn", Georgia, "Times New Roman", serif !important;
 }
 
+main h2, main h3, main h4, main h5, main h6 {
+  margin-top: 2em;
+}
+
 code, pre, kbd, samp {
   font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace !important;
 }
