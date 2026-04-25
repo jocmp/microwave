@@ -245,6 +245,11 @@ blockquote p {
   cursor: pointer;
 }
 
+.post-list .post-image img,
+#my-gallery img {
+  cursor: zoom-in;
+}
+
 #prev-btn,
 #next-btn {
   display: inline-flex;

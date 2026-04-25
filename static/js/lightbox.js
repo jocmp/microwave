@@ -40,7 +40,19 @@ if (gallery) {
       openLightbox(Array.from(imgs).indexOf(this));
     });
   }
-} 
+}
+
+// Standalone single-image lightbox triggers (e.g. card previews on the home feed).
+// Each click opens the lightbox with only that one image; no pagination.
+var standaloneImgs = document.querySelectorAll('.post-list .post-image img');
+for (var j = 0; j < standaloneImgs.length; j++) {
+  (function (img) {
+    img.addEventListener('click', function () {
+      images = [{ src: img.src, alt: img.alt }];
+      openLightbox(0);
+    });
+  })(standaloneImgs[j]);
+}
 
 // Add click event listeners to navigation buttons
 var prevBtn = document.getElementById('prev-btn');
