@@ -68,10 +68,8 @@
     {{ $h := 0 }}
     {{ if or (hasPrefix $imgURL "http://") (hasPrefix $imgURL "https://") }}
       {{ with resources.GetRemote $imgURL }}
-        {{ if not .Err }}
-          {{ $w = .Width }}
-          {{ $h = .Height }}
-        {{ end }}
+        {{ $w = .Width }}
+        {{ $h = .Height }}
       {{ end }}
     {{ else }}
       {{ with imageConfig (printf "static%s" $imgURL) }}
