@@ -568,6 +568,7 @@ nav a,
   margin-bottom: 4rem;
 }
 
+
 @media (prefers-color-scheme: dark) {
   img.light-bg {
     background-color: #FDF6E3;

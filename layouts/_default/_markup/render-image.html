@@ -3,19 +3,8 @@
 {{- $w := 0 -}}
 {{- $h := 0 -}}
 {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
-  {{- with resources.GetRemote $src -}}
-    {{- $w = .Width -}}
-    {{- $h = .Height -}}
-  {{- end -}}
+  {{- with resources.GetRemote $src -}}{{- $w = .Width -}}{{- $h = .Height -}}{{- end -}}
 {{- else -}}
-  {{- with imageConfig (printf "static%s" $src) -}}
-    {{- $w = .Width -}}
-    {{- $h = .Height -}}
-  {{- end -}}
+  {{- with imageConfig (printf "static%s" $src) -}}{{- $w = .Width -}}{{- $h = .Height -}}{{- end -}}
 {{- end -}}
-{{- $portrait := and (gt $w 0) (gt $h 0) (gt $h $w) -}}
-{{- if $portrait -}}
-<span class="post-image post-image--portrait d-inline-flex"><img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if and (gt $w 0) (gt $h 0) }} width="{{ $w }}" height="{{ $h }}"{{ end }} loading="lazy"></span>
-{{- else -}}
 <img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if and (gt $w 0) (gt $h 0) }} width="{{ $w }}" height="{{ $h }}"{{ end }} loading="lazy">
-{{- end -}}
