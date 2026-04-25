@@ -6,6 +6,18 @@
     <meta name="theme-color" content="#FDF6E3" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#2D353B" media="(prefers-color-scheme: dark)">
     {{ partial "og.html" . }}
+    {{- if .IsPage -}}
+      {{- $heroSrc := "" -}}
+      {{- with .Params.images -}}{{- $heroSrc = index . 0 -}}{{- end -}}
+      {{- if not $heroSrc -}}
+        {{- with findRE `<img[^>]*src="[^"]+"` .Content 1 -}}
+          {{- $heroSrc = (index . 0) | replaceRE `.*src="([^"]+)".*` "$1" -}}
+        {{- end -}}
+      {{- end -}}
+      {{- with $heroSrc -}}
+    <link rel="preload" as="image" href="{{ . | absURL }}" fetchpriority="high">
+      {{- end -}}
+    {{- end -}}
     <title>
         {{ block "title" . }}
         {{ if .IsHome }}{{ .Site.Title }}{{ else if .Title }}{{ .Site.Title }} - {{ .Title }}{{ else }}{{ .Site.Title }} - {{ .Summary | truncate 50 }}{{ end }}
