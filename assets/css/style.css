@@ -52,7 +52,6 @@ video {
 .single-post-content img {
   width: 100% !important;
   height: 100% !important;
-  margin-bottom: 0.5rem;
 }
 
 .mb-2.d-flex.flex-wrap>h4:not(:last-child) {
@@ -77,12 +76,12 @@ video {
 
 /* custom SVG icon handling */
 .icon-svg {
-  width: 1.35em; 
+  width: 1.35em;
   height: 1.35em;
   fill: currentColor;
-  vertical-align: middle; 
+  vertical-align: middle;
   position: relative;
-  top: -0.1em; 
+  top: -0.1em;
 }
 
 .post-meta-container {
@@ -454,12 +453,12 @@ blockquote p {
 }
 
 .archive_categories .d-flex.flex-wrap, .archive_years .d-flex.flex-wrap {
-  row-gap: 0.75rem; 
+  row-gap: 0.75rem;
   column-gap: 0.75rem;
 }
 
 .single-categories .d-flex.flex-wrap {
-  row-gap: 0.25rem; 
+  row-gap: 0.25rem;
   column-gap: 0.25rem;
 }
 
@@ -484,9 +483,9 @@ ul.bookshelf.bookshelf--variant-grid > li {
 }
 
 .bookshelf--variant-grid .bookshelf__item {
-  flex: 1 1 8rem !important; 
-  max-width: 12rem !important; 
-  min-width: 5rem !important;  
+  flex: 1 1 8rem !important;
+  max-width: 12rem !important;
+  min-width: 5rem !important;
   box-sizing: border-box !important;
   margin: 0 !important;
 }

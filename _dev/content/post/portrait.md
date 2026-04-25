@@ -14,4 +14,4 @@ Inline portrait via figure shortcode (should also render in a 3:2 cream-bg box):
 
 Inline portrait via markdown:
 
-![Portrait demo md](/uploads/block-quotes.png)
+![Portrait demo md](/uploads/add-account.png)
